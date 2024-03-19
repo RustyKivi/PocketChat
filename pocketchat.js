@@ -69,7 +69,7 @@ function logServer()
 {   
     console.clear();
     console.log(` `);
-    console.log(`Session: ${getTimeString()}`);
+    console.log(`\x1b[31mSession: \x1b[4m${getTimeString()}\x1b[0m`);
     console.log(`┌─ Server: \x1b[33mRunning\x1b[0m`)
     console.log(`│   ├─ Port: \x1b[33m${PORT}\x1b[0m`);
     console.log(`│   ├─ Log: \x1b[33m${LOGMESSAGES}\x1b[0m`);
