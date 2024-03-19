@@ -1,0 +1,19 @@
+{
+  "name": "pocketchat",
+  "version": "1.0.0",
+  "description": "PocketChat is a chat application that is made with javascript. The backend is a ExpressJS server that uses PocketBase as a Databse.",
+  "main": "pocketchat.js",
+  "scripts": {
+    "start": "node pocketchat.js"
+  },
+  "author": "Anton Kivi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "pocketbase": "^0.21.1",
+    "socket.io": "^4.7.5"
+  }
+}
