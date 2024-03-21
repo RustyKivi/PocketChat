@@ -28,27 +28,28 @@ app.get('/', (req, res) => {
 });
 app.get('/login', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
-    if(CONFIG.LogSettings.request == true){logRequest('/login',true,'GET',ipAddress)}
     res.render('login');
 });
 app.get('/signup', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
-    if(CONFIG.LogSettings.request == true){logRequest('/sign',false,'GET',ipAddress)}
     res.render('signup');
 });
 app.get('/chat', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
-    if(CONFIG.LogSettings.request == true){logRequest('/chat',true,'GET',ipAddress)}
     res.render('chat');
 });
 
 // Socket
 io.on('connection', (socket) => {
-    const ipAddress = socket.handshake.headers["x-forwarded-for"].split(",")[0];
+    const ipAddress = socket.handshake.address;
     socket.data.username = ipAddress;
     socket.on('chat message', (msg) => {
-        logMessage(msg,ipAddress,)
-        io.emit('chat message', msg);
+        message = {
+            content:msg.content,
+            sender:socket.data.username,
+            time:getTimeString()
+        }
+        io.emit('chat message', message);
     });
 });
 
@@ -87,25 +88,6 @@ function logServer()
         console.log(`    ├─ Messages: \x1b[32m${MESSAGES}\x1b[0m`);
         console.log(`    └─ Auth: \x1b[32m${AUTH}\x1b[0m`)
     }
-    console.log(` `);
-}
-function logMessage(content, sender,messageid)
-{
-    if(CONFIG.LogSettings.messages == false || LOGMESSAGES == false)return;
-    const id = messageid || "Null";
-
-    console.log(`┌─ Message : \x1b[33m${id}\x1b[0m`)
-    console.log(`├── Sender: \x1b[33m${sender}\x1b[0m`);
-    console.log(`├── Time: \x1b[33m${getTimeString()}\x1b[0m`);
-    console.log(`└── Content: \x1b[33m${content}\x1b[0m`);
-    console.log(` `);
-}
-function logRequest(url,success,type,IP)
-{
-    console.log(`┌─ ${type} Request: \x1b[33m${url}\x1b[0m`)
-    if(!success){console.log(`├── Success?: \x1b[31m${success}\x1b[0m`);}else{console.log(`├── Success?: \x1b[32m${success}\x1b[0m`);}
-    console.log(`├── Time: \x1b[33m${getTimeString()}\x1b[0m`);
-    console.log(`└── IP: \x1b[33m${IP}\x1b[0m`);
     console.log(` `);
 }
 function getTimeString()
