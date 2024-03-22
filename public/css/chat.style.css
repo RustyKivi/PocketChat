@@ -11,7 +11,7 @@ body{
 	height: 40px;
 	max-width: 500px;
     width: calc(100% - 16px);
-	background-color: hsl(0, 0%, 14%);
+	background-color: hsl(0, 0%, 85%);
 	border-radius: 6px;
 	overflow: hidden;
     padding: 8px;
@@ -23,7 +23,8 @@ body{
 #chat-form input{
     flex: 1;
     border-radius: 6px;
-    background-color: hsl(0, 0%, 22%);
+    background-color: hsl(0, 0%,80%);
+    color: #16161a;
     border: 0;
     padding: 10px;
     font-size: 15px;
@@ -31,10 +32,10 @@ body{
 #chat-form button{
     width: 40px;
     border-radius: 6px;
-    background-color: hsl(0, 0%, 22%);
+    background-color: hsl(0, 0%,80%);
     border: 0;
     font-size: 15px;
-    color: hsl(0, 0%, 36%);
+    color: #16161a;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -53,7 +54,7 @@ body{
 }
 message{
     padding: 10px;
-    background-color: hsl(0, 0%, 14%);
+    background-color: hsl(0, 0%, 85%);
     border-radius: 6px;
 
     display: flex;
@@ -64,7 +65,7 @@ message{
     width: 50px;
     height: 50px;
     border-radius: 8px;
-    background-color: orange;
+    background-color: rgb(75, 124, 214);
 }
 .line{
     flex: 1;
@@ -73,7 +74,7 @@ message{
 }
 .line h2{
     margin: 0;
-    color: orange;
+    color: rgb(75, 124, 214);
 }
 .line p{
     margin: 0;

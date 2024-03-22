@@ -8,7 +8,7 @@
     "Pocketbase": {
         "url":"http://127.0.0.1:8090",
         "auth":false,
-        "messages":false,
+        "messages":true,
         "connected":true
     },
     "LogSettings": {

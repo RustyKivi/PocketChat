@@ -34,24 +34,36 @@ app.get('/signup', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
     res.render('signup');
 });
-app.get('/chat', (req, res) => {
+app.get('/chat', async(req, res) => {
+    const messages = await pb.collection('messages').getList(1, 10, {});
     const ipAddress = req.socket.remoteAddress;
-    res.render('chat');
+    res.render('chat', { messages });
 });
 
 // Socket
 io.on('connection', (socket) => {
     const ipAddress = socket.handshake.address;
     socket.data.username = ipAddress;
+    socket.data.id = "nqb93gfeju435u2";
     socket.on('chat message', (msg) => {
         message = {
             content:msg.content,
             sender:socket.data.username,
             time:getTimeString()
-        }
+        };
         io.emit('chat message', message);
+        if(CONFIG.Pocketbase.messages == true)saveMessage(socket.data.id,msg.content);
     });
 });
+async function saveMessage(senderid,content)
+{
+    const data = {
+        "Sender": senderid,
+        "Content": content
+    };
+    const record = await pb.collection('messages').create(data);
+    console.log("Datasaved!");
+}
 
 
 // Server/Config
@@ -65,7 +77,6 @@ let AUTH = CONFIG.Pocketbase.auth || false;
 server.listen(PORT, () => {
     logServer();
 });
-
 function logServer()
 {   
     console.clear();
