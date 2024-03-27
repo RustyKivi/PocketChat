@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    <link href="/css/common.style.css">
+    <link href="/css/common.style.css" rel="stylesheet" type="text/css">
+    <link href="/css/form.style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    
+    <form>
+        <formHeader class="formHeader">
+            <h1>Login</h1>
+            <list class="formLinks">
+                <a>LinkedIn</a>
+                <a>Instagram</a>
+                <a>Discord</a>
+            </list>
+            <p>Here can you login to your account!</p>
+        </formHeader>
+        <formBody class="formBody">
+            <input type="email" required placeholder="Email">
+            <input type="password" required placeholder="Password">
+        </formBody>
+        <formFeet class="formFeet">
+            <button type="submit" class="formSubmit">Login</button>
+            <p>Don't have a account? <a href="/signup">Sign up</a></p>
+        </formFeet>
+    </form>
 </body>
 </html>
