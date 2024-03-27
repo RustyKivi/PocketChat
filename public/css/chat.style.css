@@ -83,14 +83,3 @@ message{
 .timestamp{
     text-align: right;
 }
-
-@media only screen and (max-width: 600px) {
-    #chat-form{
-        bottom: 0px;
-        border-radius: 0;
-    }
-    #chat{
-        max-width: 500px;
-        width: calc(100% - 20px);
-    }
-}
