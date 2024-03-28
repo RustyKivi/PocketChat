@@ -1,6 +1,128 @@
 body{
-	background-color: whitesmoke;
-    margin: 0;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	position: relative;
+	background-color: #373A3F;
+	font-family: sans-serif;
 	height: 100vh;
-	user-select: none;
+}
+/* Chat */
+.chat_container{
+	background-color: #373A3F;
+	flex: 1px;
+	display: flex;
+	flex-direction: column;
+}
+.chat_layout{
+	padding: 10px;
+	flex: 1px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.chat_header{
+	margin: 0;
+	text-align: left;
+	color: white;
+	padding: 15px;
+	border-bottom: 1px solid rgb(39, 39, 39);
+	font-size: 1.25rem;
+	font-weight: normal;
+}
+.chat_header span{
+	color: rgb(143, 143, 143);
+	margin-right: 5px;
+}
+
+/* Server */
+.server_list{
+	display: flex;
+	padding: 10px;
+	background-color: #1E2124;
+	flex-direction: column;
+	gap: 10px;
+}
+.server_list_item{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 0;
+	background-color: #2F3137;
+}
+
+/* Room List */
+.room_list{
+	background-color: #2F3137;
+	display: flex;
+	flex-direction: column;
+}
+.room_list_layout{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 10px;
+	flex: 1;
+}
+.room_list_item{
+	background-color: transparent;
+	padding:10px;
+	width: 200px;
+	border: 0;
+	text-align: left;
+	font-size: 1rem;
+	border-radius: 0.5rem;
+	color: white;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.room_list_item:hover{
+	background-color: #43474E;
+}
+.room_list_item span{
+	color: rgb(143, 143, 143);
+	margin-right: 5px;
+}
+#room_list_header{
+	margin: 0;
+	text-align: left;
+	color: white;
+	padding: 15px;
+	border-bottom: 1px solid rgb(39, 39, 39);
+	font-size: 1.25rem;
+	font-weight: normal;
+}
+
+/* Messages */
+.message{
+	border-top: 1px solid #4B4E53;
+	display: flex;
+	flex-direction: row;
+}
+.messageRight{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+.messageInfo{
+	font-size: 1rem;
+	color: rgb(186, 74, 74);
+}
+.messageInfo span{
+	color: #4B4E53;
+	font-weight: normal;
+	margin-left: 5px;
+	font-size: 0.85rem;
+}
+.profilePicture{
+	background-color: #4B4E53;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+}
+.messageContent{
+	margin: 0;
+	color: #d0d0d1;
+	margin-bottom: 10px;
 }
