@@ -34,8 +34,17 @@ app.get('/signup', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
     res.render('signup');
 });
+
 app.get('/chat', async(req, res) => {
     const messages = await pb.collection('messages').getList(1, 10, {});
+
+    messages.forEach(async (doc) => {
+        const messageData = doc.data();
+        const senderId = messageData.Sender;
+        console.log(senderId);
+    });
+
+    const user = await pb.collection('posts').update('POST_ID', {})
     const ipAddress = req.socket.remoteAddress;
     res.render('chat', { messages });
 });
@@ -45,6 +54,7 @@ io.on('connection', (socket) => {
     const ipAddress = socket.handshake.address;
     socket.data.username = ipAddress;
     socket.data.id = "nqb93gfeju435u2";
+    
     socket.on('chat message', (msg) => {
         message = {
             content:msg.content,
