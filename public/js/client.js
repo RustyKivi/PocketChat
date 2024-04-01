@@ -17,5 +17,11 @@ form.addEventListener('submit', (e) => {
         }
         socket.emit('chat message', message);
         input.value = '';
+        toolTip("Message's sent!")
     }
 });
+
+function toggleList() {
+    var element = document.getElementById("roomList");
+    element.classList.toggle("room_list_hidden");
+}

@@ -44,12 +44,12 @@ app.post('/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         
-        // Perform authentication using PocketBase
+        console.log(req.body);
         const authData = await pb.collection('users').authWithPassword(username, password);
-        console.log(req.body)
 
         if (pb.authStore.isValid) {
             console.log("user login!");
+            console.log(authData)
             req.session.authToken = pb.authStore.token;
             req.session.userId = pb.authStore.model.id;
 
@@ -67,14 +67,6 @@ app.post('/login', async (req, res, next) => {
 
 app.get('/chat', async(req, res) => {
     const messages = await pb.collection('messages').getList(1, 10, {});
-
-    messages.forEach(async (doc) => {
-        const messageData = doc.data();
-        const senderId = messageData.Sender;
-        console.log(senderId);
-    });
-
-    const user = await pb.collection('posts').update('POST_ID', {})
     const ipAddress = req.socket.remoteAddress;
     res.render('chat', { messages });
 });

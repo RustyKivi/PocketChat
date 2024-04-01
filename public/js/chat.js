@@ -1,4 +1,4 @@
-const body = document.getElementById('chat');
+const body = document.getElementById('chat_layout');
 
 function renderMessage(_sender,_content, _time)
 {
@@ -35,4 +35,11 @@ function getTimeString()
 
     const _time = `${hours}:${minutes}`;
     return _time;
-}       
+}
+
+function toolTip(content) {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    x.textContent = content
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }

@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Chat</title>
+    <title>Chat - PocketChat</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link href="/css/common.style.css" rel="stylesheet" type="text/css">
     <link href="/css/chat.style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="room_list">
+    <div class="server_list">
+        <button class="server_list_item" onclick="toggleList()">
+            <span class="ribbon">NEW</span>
+        </button>
+    </div>
+    <div class="room_list" id="roomList">
         <h1 id="room_list_header">
             Pocket<span>Chat</span>
         </h1>
         <div class="room_list_layout">
+            <input id="room_list_input" placeholder="Enter room name...">
             <button class="room_list_item"><span>#</span>general</button>
             <button class="room_list_item"><span>#</span>pathnotes</button>
             <button class="room_list_item"><span>#</span>github</button>
@@ -47,9 +53,14 @@
                 </div>
             <% }); %>
         </div>
+        <form id="chat-form">
+            <input id="chat-input" required placeholder="Enter message...">
+            <button type="submit" class="submitButton">Send</button>
+        </form>
     </div>
+    <div id="snackbar">Tooltip here...</div>
     <script src="/socket.io/socket.io.js"></script>
-    <!--<script src="/js/chat.js" type="text/javascript"></script>
-    <script src="/js/client.js" type="text/javascript"></script>-->
+    <script src="/js/chat.js" type="text/javascript"></script>
+    <script src="/js/client.js" type="text/javascript"></script>
 </body>
 </html>

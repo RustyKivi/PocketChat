@@ -1,6 +1,6 @@
 /* Chat */
 .chat_container{
-	background-color: #373A3F;
+	background-color: #F9F9FB;
 	flex: 1px;
 	display: flex;
 	flex-direction: column;
@@ -15,9 +15,9 @@
 .chat_header{
 	margin: 0;
 	text-align: left;
-	color: white;
+	color: rgb(21, 21, 21);
 	padding: 15px;
-	border-bottom: 1px solid rgb(39, 39, 39);
+	border-bottom: 1px solid #D8DEE5;
 	font-size: 1.25rem;
 	font-weight: normal;
 }
@@ -28,9 +28,10 @@
 
 /* Messages */
 .message{
-	border-top: 1px solid #4B4E53;
+	border-top: 1px solid #D8DEE5;
 	display: flex;
 	flex-direction: row;
+	
 }
 .messageRight{
 	flex: 1;
@@ -48,7 +49,7 @@
 	font-size: 0.85rem;
 }
 .profilePicture{
-	background-color: #4B4E53;
+	background-color: #E4E8ED;
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
@@ -56,10 +57,40 @@
 }
 .messageContent{
 	margin: 0;
-	color: #d0d0d1;
+	color: rgb(21, 21, 21);
 	margin-bottom: 10px;
 }
 .user_block{
 	padding: 15px;
 	border-top: 1px solid rgb(39, 39, 39);
+}
+
+
+/* Input field */
+#chat-form
+{
+	border-top: 1px solid #D8DEE5;
+	padding: 5px;
+	width: auto;
+	background-color: #FFFEFE;
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+}
+#chat-input{
+	flex: 1;
+	padding: 10px;
+	background-color: #E4E8ED;
+	border: 0;
+	font-size: 1rem;
+	border-radius: 5px;
+	color: #1c1c1c;
+}
+.submitButton{
+	width: 100px;
+	border: 0;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+	font-weight: bold;
 }

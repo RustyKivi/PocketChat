@@ -3,37 +3,51 @@ body{
 	flex-direction: row;
 	margin: 0;
 	position: relative;
-	background-color: #373A3F;
+	background-color: #F9F9FB;
 	font-family: sans-serif;
 	height: 100vh;
+	overflow: hidden;
 }
-
+.icon{
+	width: 1rem;
+	color: white;
+}
 /* Server */
 .server_list{
 	display: flex;
 	padding: 10px;
-	background-color: #1E2124;
+	background-color: #FFFEFE;
+	border-right: #D8DEE5 1px solid;
 	flex-direction: column;
 	gap: 10px;
 }
 .server_list_item{
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
+	border-radius:1rem;
 	border: 0;
-	background-color: #2F3137;
+	background-color: #E4E8ED;
+	position: relative;
 }
 
 /* Room List */
 .room_list{
-	background-color: #2F3137;
+	background-color: #FFFEFE;
 	display: flex;
 	flex-direction: column;
+	border-right: #D8DEE5 1px solid;
+	transition: 0.3s;
+}
+.room_list_hidden{
+	width: 0px;
+	overflow: hidden;
+	border-right: 0;
 }
 .room_list_layout{
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
+	width: 200px;
 	flex: 1;
 }
 .room_list_item{
@@ -44,12 +58,13 @@ body{
 	text-align: left;
 	font-size: 1rem;
 	border-radius: 0.25rem;
-	color: white;
+	color: rgb(32, 32, 32);
 	cursor: pointer;
+	position: relative;
 	transition: 0.3s;
 }
 .room_list_item:hover{
-	background-color: #43474E;
+	background-color: #E4E8ED;
 }
 .room_list_item span{
 	color: rgb(143, 143, 143);
@@ -58,12 +73,117 @@ body{
 #room_list_header{
 	margin: 0;
 	text-align: left;
-	color: white;
+	color: rgb(21, 21, 21);
 	padding: 15px;
-	border-bottom: 1px solid rgb(39, 39, 39);
+	border-bottom: 1px solid #D8DEE5;
 	font-size: 1.25rem;
 	font-weight: normal;
 }
 #room_list_header span{
 	font-weight: bold;
+}
+
+#room_list_input{
+	background-color: transparent;
+	text-align: center;
+	padding: 10px;
+	border: 0;
+	font-size: 0.8rem;
+	border-radius: 5px;
+	width: 200px;
+	color: #1c1c1c;
+	outline: none;
+	margin-bottom: 10px;
+	width: auto;
+	transition: 0.3s;
+}
+#room_list_input:hover{
+	background-color: #E4E8ED;
+}
+#room_list_input:focus{
+	background-color: #E4E8ED;
+}
+
+/* Effects */
+.ribbon {
+	width: 60px;
+	font-size: 14px;
+	padding: 4px;
+	position: absolute;
+	right: -25px;
+	top: -12px;
+	text-align: center;
+	border-radius: 25px;
+	transform: rotate(20deg);
+	background-color: #ff9800;
+	color: white;
+}
+.arrow {
+	border: solid rgb(255, 255, 255);
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+  }
+  
+.right {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+  
+.left {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+  
+.up {
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+  
+.down {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+/* Tooltip */
+
+#snackbar {
+	visibility: hidden;
+	min-width: 250px;
+	margin-left: -125px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+	padding: 16px;
+	position: fixed;
+	z-index: 1;
+	left: 50%;
+	bottom: 30px;
+	border-radius: 5px;
+}
+#snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+  
+@-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+}
+  
+@keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+}
+  
+@-webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+}
+  
+@keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
 }
