@@ -3,8 +3,10 @@ const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const session = require('express-session');
-const PocketBase = require('pocketbase/cjs')
-var CONFIG = require('./config.json');
+const PocketBase = require('pocketbase/cjs');
+const CONFIG = require('./config.json');
+const bodyParser = require('body-parser');
+
 
 const app = express();
 const server = http.createServer(app);
@@ -21,6 +23,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/pages'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Routes
 app.get('/', (req, res) => {
@@ -28,12 +32,38 @@ app.get('/', (req, res) => {
 });
 app.get('/login', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
+    console.log(ipAddress)
     res.render('login');
 });
 app.get('/signup', (req, res) => {
     const ipAddress = req.socket.remoteAddress;
     res.render('signup');
 });
+
+app.post('/login', async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        
+        // Perform authentication using PocketBase
+        const authData = await pb.collection('users').authWithPassword(username, password);
+        console.log(req.body)
+
+        if (pb.authStore.isValid) {
+            console.log("user login!");
+            req.session.authToken = pb.authStore.token;
+            req.session.userId = pb.authStore.model.id;
+
+            res.redirect('/chat');
+        } else {
+            console.log("Failed!")
+            res.redirect('/login');
+        }
+    } catch (error) {
+        next(error);
+    }
+});
+
+
 
 app.get('/chat', async(req, res) => {
     const messages = await pb.collection('messages').getList(1, 10, {});
