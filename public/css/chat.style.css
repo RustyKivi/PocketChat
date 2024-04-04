@@ -64,8 +64,24 @@
 	padding: 15px;
 	border-top: 1px solid rgb(39, 39, 39);
 }
-
-
+.hor_layout{
+	display: flex;
+	flex-direction: row;
+}
+.hor_layout button{
+	border: 0;
+	background-color: transparent;
+	color: rgb(143, 143, 143);
+	font-weight: bold;
+	flex: 1;
+	padding:8px;
+	border-bottom: #D8DEE5 1px solid;
+	transition: 0.3s;
+}
+.hor_layout button:hover{
+	background-color: #E4E8ED;
+	color: rgb(32, 32, 32);
+}
 /* Input field */
 #chat-form
 {
@@ -89,7 +105,7 @@
 .submitButton{
 	width: 100px;
 	border: 0;
-	background-color: black;
+	background-color: rgb(14, 14, 14);
 	color: white;
 	border-radius: 5px;
 	font-weight: bold;

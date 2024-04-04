@@ -44,7 +44,7 @@ app.post('/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         
-        console.log(req.body);
+        //console.log(req.body);
         const authData = await pb.collection('users').authWithPassword(username, password);
 
         if (pb.authStore.isValid) {
@@ -52,6 +52,8 @@ app.post('/login', async (req, res, next) => {
             console.log(authData)
             req.session.authToken = pb.authStore.token;
             req.session.userId = pb.authStore.model.id;
+            req.session.valid = true;
+            req.session.rooms = authData.record.rooms;
 
             res.redirect('/chat');
         } else {
@@ -67,6 +69,9 @@ app.post('/login', async (req, res, next) => {
 
 app.get('/chat', async(req, res) => {
     const messages = await pb.collection('messages').getList(1, 10, {});
+    var passedVariable = req.session.valid;
+    console.log(passedVariable)
+    if(passedVariable == false) redirect('/login');
     const ipAddress = req.socket.remoteAddress;
     res.render('chat', { messages });
 });
