@@ -69,9 +69,6 @@ app.post('/login', async (req, res, next) => {
 
 app.get('/chat', async(req, res) => {
     const messages = await pb.collection('messages').getList(1, 10, {});
-    var passedVariable = req.session.valid;
-    console.log(passedVariable)
-    if(passedVariable == false) redirect('/login');
     const ipAddress = req.socket.remoteAddress;
     res.render('chat', { messages });
 });

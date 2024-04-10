@@ -1,4 +1,4 @@
-const body = document.getElementById('chat_layout');
+const body = document.getElementById('chat');
 
 function renderMessage(_sender,_content, _time)
 {
@@ -42,4 +42,4 @@ function toolTip(content) {
     x.className = "show";
     x.textContent = content
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
+}

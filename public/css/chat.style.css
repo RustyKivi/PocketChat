@@ -1,112 +1,52 @@
-/* Chat */
-.chat_container{
-	background-color: #F9F9FB;
-	flex: 1px;
-	display: flex;
-	flex-direction: column;
+#roomList{
+	width: 250px;
+	gap: 10px;
 }
-.chat_layout{
-	padding: 10px;
-	flex: 1px;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-}
-.chat_header{
-	margin: 0;
+.roomListItem{
+	padding: 14px;
 	text-align: left;
-	color: rgb(21, 21, 21);
-	padding: 15px;
-	border-bottom: 1px solid #D8DEE5;
-	font-size: 1.25rem;
-	font-weight: normal;
-}
-.chat_header span{
-	color: rgb(143, 143, 143);
-	margin-right: 5px;
-}
-
-/* Messages */
-.message{
-	border-top: 1px solid #D8DEE5;
-	display: flex;
-	flex-direction: row;
-	
-}
-.messageRight{
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-}
-.messageInfo{
-	font-size: 1rem;
-	color: rgb(186, 74, 74);
-}
-.messageInfo span{
-	color: #4B4E53;
-	font-weight: normal;
-	margin-left: 5px;
-	font-size: 0.85rem;
-}
-.profilePicture{
-	background-color: #E4E8ED;
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	margin: 10px;
-}
-.messageContent{
-	margin: 0;
-	color: rgb(21, 21, 21);
-	margin-bottom: 10px;
-}
-.user_block{
-	padding: 15px;
-	border-top: 1px solid rgb(39, 39, 39);
-}
-.hor_layout{
-	display: flex;
-	flex-direction: row;
-}
-.hor_layout button{
-	border: 0;
-	background-color: transparent;
-	color: rgb(143, 143, 143);
-	font-weight: bold;
-	flex: 1;
-	padding:8px;
-	border-bottom: #D8DEE5 1px solid;
+	border-radius: 1rem;
+	cursor: pointer;
+	color: white;
 	transition: 0.3s;
+
 }
-.hor_layout button:hover{
-	background-color: #E4E8ED;
-	color: rgb(32, 32, 32);
+.roomListItem:hover{
+	background-color: #272727;
+	color: white;
+	text-shadow: 0px 0px 2px snow;
 }
-/* Input field */
-#chat-form
-{
-	border-top: 1px solid #D8DEE5;
-	padding: 5px;
-	width: auto;
-	background-color: #FFFEFE;
-	display: flex;
-	flex-direction: row;
+#navbar{
 	gap: 5px;
+	align-items: center;
+	justify-content: center;
+}
+.navitem{
+	padding: 8px 14px;
+	background-color: #272727;
+	border-radius: 5rem;
+	color: whitesmoke;
+	cursor: pointer;
+	text-align: center;
+}
+#controller{
+	gap: 10px;
+	border-top: 1px solid  #272727;
+	padding-top: 10px;
+	margin-top: 10px;
 }
 #chat-input{
+	padding: 12px;
 	flex: 1;
-	padding: 10px;
-	background-color: #E4E8ED;
+	background-color: #272727;
 	border: 0;
-	font-size: 1rem;
-	border-radius: 5px;
-	color: #1c1c1c;
+	border-radius: 5rem;
+	color: whitesmoke;
 }
-.submitButton{
-	width: 100px;
-	border: 0;
-	background-color: rgb(14, 14, 14);
+#submitButton{
+	background-color: #272727;
 	color: white;
-	border-radius: 5px;
-	font-weight: bold;
+	padding: 5px 20px;
+	border: 0;
+	border-radius: 5rem;
 }
