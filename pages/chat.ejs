@@ -12,25 +12,32 @@
     <main>
         <container class="container" id="conBody">
             <page id="page_chat">
-                <list class="vertical_list" id="roomList">
+                <list class="vertical_list roomListOpen" id="roomList">
+                    <button class="toggle" onclick="sideBar()">X</button>
                     <listItem class="roomListItem">
-                        Hello world
+                        <span class="tag">#</span>Hello world
+                    </listItem>
+                    <listItem class="roomListItem">
+                        <span class="tag">#</span>Hello world
                     </listItem>
                 </list>
+                <chat id="chat_output" class="vertical_list">
+
+                </chat>
             </page>
         </container>
         <container class="container vertical_list" id="conFeet">
             <nav id="navbar" class="horizontal_list">
-                <button class="navitem state_show" id="page_home_button">
+                <a class="navitem state_show" id="page_home_button" href="/home">
                     Home
-                </button>
-                <button class="navitem state_hide" id="page_chat_button">
+                </a>
+                <a class="navitem state_hide" id="page_chat_button" href="/chat">
                     Chat
-                </button>
-                <button class="navitem state_show" id="page_account_button">
+                </a>
+                <button class="navitem state_show" id="page_account_button" href="/account">
                     Account
                 </button>
-                <button class="navitem state_show" id="page_setting_button">
+                <button class="navitem state_show" id="page_setting_button" href="/setting">
                     Settings
                 </button>
             </nav>

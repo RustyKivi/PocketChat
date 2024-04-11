@@ -118,3 +118,30 @@ function getTimeString()
     const _time = `${hours}:${minutes}`;
     return _time;
 }
+
+function sideBar(s)
+{
+    const form = document.getElementById("roomList");
+    if(s != null)
+    {
+        if(s === true)
+        {
+            form.classList.add("roomListOpen");
+            form.classList.remove("roomListClose");
+        }else{
+            form.classList.remove("roomListOpen");
+            form.classList.add("roomListClose");
+        }
+    }else{
+        if(form.classList.contains("roomListClose"))
+        {
+            form.classList.add("roomListOpen");
+            form.classList.remove("roomListClose");
+            return true;
+        }else{
+            form.classList.remove("roomListOpen");
+            form.classList.add("roomListClose");
+            return false;
+        }
+    }
+}

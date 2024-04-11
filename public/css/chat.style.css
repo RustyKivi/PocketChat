@@ -1,6 +1,15 @@
 #roomList{
+	padding-right: 10px;
+	border-right: 1px solid  #272727;
+	height: 100%;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.roomListClose{
+	width: 40px;
+}
+.roomListOpen{
 	width: 250px;
-	gap: 10px;
 }
 .roomListItem{
 	padding: 14px;
@@ -10,12 +19,34 @@
 	color: white;
 	font-size: 1rem;
 	transition: 0.3s;
+	overflow: hidden;
+	width: 226px;
 
 }
 .roomListItem:hover{
 	background-color: #272727;
+}
+.tag{
+	color: gray;
+	padding-right: 5px;
+}
+.toggle{
+	width: 40px;
+	height: 40px;
 	color: white;
-	text-shadow: 0px 0px 2px snow;
+	font-size: 0.8rem;
+	background-color: #272727;
+	border-radius: 50%;
+	border: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+.toggle:hover{
+	background-color: #353535;
 }
 #navbar{
 	gap: 5px;
@@ -26,13 +57,20 @@
 	padding: 14px;
 	background-color: #272727;
 	border-radius: 0.5rem;
+	font-size: 0.8rem;
 	color: whitesmoke;
 	cursor: pointer;
 	border: 0;
 	text-align: center;
 	justify-content: center;
+	text-decoration: none;
 	max-width: 200px;
 	flex: 1;
+}
+
+/* Chat */
+#chat_output{
+
 }
 
 /* Bottom */
