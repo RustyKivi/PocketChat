@@ -6,7 +6,7 @@
 	transition: 0.3s;
 }
 .roomListClose{
-	width: 40px;
+	width: 30px;
 }
 .roomListOpen{
 	width: 250px;
@@ -31,8 +31,8 @@
 	padding-right: 5px;
 }
 .toggle{
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	color: white;
 	font-size: 0.8rem;
 	background-color: #272727;
