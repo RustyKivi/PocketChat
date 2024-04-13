@@ -6,8 +6,12 @@
 	align-items: flex-end;
 	transition: 0.3s;
 }
-.roomListClose{width: 40px;}
-.roomListOpen{width: 255px;}
+.roomListClose{
+	width: 40px;
+}
+.roomListOpen{
+	width: 250px;
+}
 .roomListItem{
 	padding: 14px;
 	text-align: left;
@@ -28,8 +32,8 @@
 	padding-right: 5px;
 }
 .toggle{
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	color: white;
 	font-size: 0.8rem;
 	background-color: #272727;

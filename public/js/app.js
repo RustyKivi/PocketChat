@@ -85,29 +85,7 @@ function toggle(id, s)
 }
 function chatForm(s)
 {
-    const form = document.getElementById("controller");
-    if(s != null)
-    {
-        if(s === true)
-        {
-            form.classList.add("state_show");
-            form.classList.remove("state_hide");
-        }else{
-            form.classList.remove("state_show");
-            form.classList.add("state_hide");
-        }
-    }else{
-        if(form.classList.contains("state_hide"))
-        {
-            form.classList.add("state_show");
-            form.classList.remove("state_hide");
-            return true;
-        }else{
-            form.classList.remove("state_show");
-            form.classList.add("state_hide");
-            return false;
-        }
-    }
+    toggle("controller",s)
 }
 function getTimeString()
 {
