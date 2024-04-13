@@ -3,14 +3,11 @@
 	border-right: 1px solid  #272727;
 	height: 100%;
 	overflow: hidden;
+	align-items: flex-end;
 	transition: 0.3s;
 }
-.roomListClose{
-	width: 40px;
-}
-.roomListOpen{
-	width: 250px;
-}
+.roomListClose{width: 40px;}
+.roomListOpen{width: 255px;}
 .roomListItem{
 	padding: 14px;
 	text-align: left;
